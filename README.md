@@ -5,6 +5,12 @@
 > 🧠 Built with consistency, self-belief, and hands-on practice
 
 ---
+## 📸 Screenshot
+
+
+![BharatBlog Preview](static/images/Macbook-Air-127.0.0.1.png)
+
+---
 
 ## 🧭 Overview
 
@@ -146,11 +152,6 @@ Open browser at: http://127.0.0.1:8000
 
 ---
 
-## 📸 Screenshot
-
-static/images/Macbook-Air-127.0.0.1.png
-
----
 
 ## 🧪 Learning Outcomes
 
