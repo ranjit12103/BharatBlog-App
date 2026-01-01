@@ -39,7 +39,7 @@ This project represents the successful completion of my **30-day Django learning
 ---
 
 ## 🏗️ Project Structure
-
+```bash
 BharatBlog/
 │
 ├── Blog_main/
@@ -71,7 +71,7 @@ BharatBlog/
 ├── db.sqlite3
 ├── manage.py
 └── README.md
-
+```
 ---
 
 ## 🚀 Features
