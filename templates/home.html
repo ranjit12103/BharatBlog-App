@@ -25,23 +25,60 @@
 
   <!-- Featured Posts -->
   <h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Featured Posts</h3>
-  <div class="row mb-2">
-    {% for post in featured_posts %}
-      {% if not forloop.first %}
-    <div class="col-md-6">
-      <div class="card border-0" >
-        <div class="card-body">
-          <h3><a href="{% url 'blogs' post.slug  %}" class="text-dark">{{ post.title }}</a></h3>
-          <small class="mb-1 text-muted">{{ post.created_at | timesince }} ago | {{ post.author }}</small>
-          <small><a class="badge bg-success text-decoration-none text-light" href="{% url 'posts_by_category' post.category.id %}">{{ post.category }}</a></small>
-          <p class="card-text">{{ post.short_description | truncatewords:25 }}</p>
+
+<div class="row mb-2">
+  {% for post in featured_posts %}
+    {% if not forloop.first %}
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+          <!-- TEXT CONTENT -->
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong>
+              <a class="badge bg-success text-decoration-none text-light"
+                 href="{% url 'posts_by_category' post.category.id %}">
+                {{ post.category }}
+              </a>
+            </strong>
+
+            <h3 class="mb-0">
+              <a href="{% url 'blogs' post.slug %}" class="text-dark text-decoration-none">
+                {{ post.title }}
+              </a>
+            </h3>
+
+            <div class="mb-1 text-muted">
+              {{ post.created_at|timesince }} ago | {{ post.author }}
+            </div>
+
+            <p class="card-text mb-auto">
+              {{ post.short_description|truncatewords:25 }}
+            </p>
+
+            <a href="{% url 'blogs' post.slug %}" class="stretched-link">
+              Continue reading
+            </a>
+          </div>
+
+          <!-- IMAGE -->
+          <div class="col-auto d-none d-lg-block">
+            {% if post.featured_image %}
+              <img
+                src="{{ post.featured_image.url }}"
+                width="200"
+                height="248"
+                
+                style="object-fit: cover;"
+                alt="{{ post.title }}">
+            {% endif %}
+          </div>
+
         </div>
       </div>
-    </div>
-      {% endif %}
-    {% endfor %}
-    
-  </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
 
 
   <!-- Recent Articles -->
